@@ -1,0 +1,20 @@
+.message-greeting-container{
+    display: flex;
+    justify-content:center;
+    margin:0 auto;
+    margin-top:100px;
+    width:50%;
+    height: 200px;
+    background-color:  #829460;
+    border-radius: 10px;
+    box-shadow: gray;
+    
+}
+
+.message{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    color:#FFE1E1;
+    font-family: roboto;
+}
