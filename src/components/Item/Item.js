@@ -1,18 +1,30 @@
-import State from "../State/state";
+//import State from "../State/state";
 import './Item.css'
+import { Link } from "react-router-dom";
 
-const Item = ({producto}) => {
+const Item = ({ producto }) => {
   return (
-    <div className="data">
+
+    <Link to={`detail/${producto.id}`} className="data">
+      <div className="txtstyle">
+      <img className="img" alt={producto.nombre} src={producto.imagen}  />
+        <h2>Nombre: {producto.nombre}</h2>
+        <h2>Material: {producto.material}</h2>
+        <h2>Color: {producto.color}</h2>
+        <h2>Precio: {producto.precio}</h2>
+      </div>
+    </Link>
+
+    /* <div className="data">
         <img className="img" alt={producto.nombre} src={producto.imagen}  />
        <div className="txtstyle">
-                <h2>Nombre del producto: {producto.nombre}</h2>
-                <h2>Material del producto: {producto.material}</h2>
-                <h2>Color del producto: {producto.color}</h2>
-                <h2>Precio del producto: {producto.precio}</h2>
+                <h2>Nombre: {producto.nombre}</h2>
+                <h2>Material: {producto.material}</h2>
+                <h2>Color: {producto.color}</h2>
+                <h2>Precio: {producto.precio}</h2>
             <State/>
             </div> 
-    </div>
+    </div> */
   );
 };
 

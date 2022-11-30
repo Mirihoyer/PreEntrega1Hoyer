@@ -23,4 +23,28 @@ export const data = [
         imagen: '../imagenes/perchamadbco.png',
         precio: '$140',
     },
+    {
+        id: 4,
+        nombre: 'Percha',
+        material: 'Acrilico',
+        color: 'Transparente',
+        imagen: '../imagenes/acrilico.png',
+        precio: '$100',
+    },
+    {
+        id: 5,
+        nombre: 'Percha con broche',
+        material: 'Acrilico',
+        color: 'Transparente',
+        imagen: '../imagenes/acrilicoconbroche.png',
+        precio: '$120',
+    },
+    {
+        id: 5,
+        nombre: 'Percha',
+        material: 'Terciopelo',
+        color: 'Negro',
+        imagen: '../imagenes/terciopelo.png',
+        precio: '$140',
+    },
 ];

@@ -2,27 +2,32 @@ import { useEffect, useState } from 'react';
 import './ItensListContainer.css';
 import { data } from '../data/data';
 import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItensListContainer = () => {
   const [productList, setProductList] = useState([]);
+  const { categoryId } = useParams();
+  console.log(categoryId);
 
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(data);
+      if (categoryId) {
+        const filteredData = data.filter((producto) => {
+          return producto.category === categoryId
+        });
+        resolve(filteredData)
+      } else {
+        resolve(data);
+      }
     }, 1000);
   });
 
   useEffect(() => {
-    getProducts.then((respuesta) => {
-      setProductList(respuesta);
-    });
+    getProducts
+      .then((respuesta) => setProductList(respuesta))
+      .catch(error => console.log(error))
+  }, [categoryId]);
 
-    setTimeout(() => {
-      console.log(productList);
-    }, 1000);
-
-  },
-    [productList]);
   return <div>
     <ItemList productList={productList} />
   </div>;

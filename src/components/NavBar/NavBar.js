@@ -19,9 +19,18 @@ function BasicExample() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/Home">Home</Nav.Link>
             <Nav.Link as={Link} to="/About">Sobre Nosotros</Nav.Link>
-            <Nav.Link as={Link} to="/Item">Perchas de Madera</Nav.Link>
+            <NavDropdown title="Perchas" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action1">
+                <Nav.Link as={Link} to="/category/madera">Perchas de madera</Nav.Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action2">
+                <Nav.Link as={Link} to="/category/acrilico">Perchas de Acrilico</Nav.Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action3">
+                <Nav.Link as={Link} to="/category/terciopelo">Perchas de Terciopelo</Nav.Link>
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
-
           <Nav.Link as={Link} to="/cart"> <CarWidget /> </Nav.Link>
 
         </Navbar.Collapse>
@@ -31,3 +40,4 @@ function BasicExample() {
 }
 
 export default BasicExample;
+
