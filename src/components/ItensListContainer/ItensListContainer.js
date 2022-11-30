@@ -13,7 +13,7 @@ const ItensListContainer = () => {
     setTimeout(() => {
       if (categoryId) {
         const filteredData = data.filter((producto) => {
-          return producto.category === categoryId
+          return producto.material === categoryId
         });
         resolve(filteredData)
       } else {
