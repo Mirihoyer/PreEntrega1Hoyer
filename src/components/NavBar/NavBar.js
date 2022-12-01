@@ -20,6 +20,7 @@ function BasicExample() {
             <Nav.Link as={Link} to="/Home">Home</Nav.Link>
             <Nav.Link as={Link} to="/About">Sobre Nosotros</Nav.Link>
             <NavDropdown title="Perchas" id="navbarScrollingDropdown">
+            <Nav.Link as={Link} to="/"></Nav.Link>
               <NavDropdown.Item href="#action1">
                 <Nav.Link as={Link} to="/category/madera">Perchas de madera</Nav.Link>
               </NavDropdown.Item>
