@@ -9,12 +9,12 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 //import ItemList from './components/ItemList/ItemList';
 import { CarWidget } from './components/CarWidget/CarWidget';
 import Cart from './components/Cart/Cart';
-
+import CartProvider from './context/CartProvider';
 
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -22,13 +22,14 @@ function App() {
           <Route path="/category/:categoryId" element={<ItensListContainer />} />
           <Route path="Item" element={<ItensListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/category/:categoryId/item/:id" element={<ItemDetailContainer />} />
           <Route path="About" element={<About />} />
           <Route path="Home" element={<Home />} />
           <Route path="Cart" element={<Cart />} />
           <Route path='CarWidget' element={<CarWidget />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </CartProvider>
   );
 };
 
