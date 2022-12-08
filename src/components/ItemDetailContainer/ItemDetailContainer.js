@@ -6,17 +6,18 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
   const [productSelected, setProductSelected] = useState();
-  const {id} = useParams();
+  const {id} = useParams(); 
 
   const getProduct = () => {
  const db = getFirestore(); 
- const query = doc(db, 'items', id);
- getDoc(query).them((response) => {
+ const query = doc(db, 'products', id);
+ getDoc(query).them((response) => {  
   console.log(response.data());
-  setProductSelected({id: response.id, ...response.data()}); 
+  setProductSelected({ id: response.id, ...response.data()}); 
  })
 .cath((error) => console.log(error));
   };
+
   useEffect(() => {
     getProduct();
   }, [id]);

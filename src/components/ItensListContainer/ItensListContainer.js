@@ -7,15 +7,17 @@ import { getFirestore, collection, getDocs, query, where } from 'firebase/firest
 
 const ItensListContainer = () => {
   const [products, setProducts] = useState([]);
-  const { categoryName } = useParams();
+  const { categoryId } = useParams();
 
 
   const getProducts = () => {
     const db = getFirestore();
     const querySnapshot = collection(db, 'products');
-    if (categoryName) {
-      const queryFilter = query(querySnapshot,
-        where('categoryId', '==', categoryName));
+    if (categoryId) {
+      const queryFilter = query(
+        querySnapshot,
+        where('categoryId', '==', categoryId)
+        );
       getDocs(queryFilter)
         .then((response) => {
           const data = response.docs.map((products) => {
@@ -49,7 +51,7 @@ const ItensListContainer = () => {
 
   useEffect(() => {
     getProducts();
-  }, [categoryName]);
+  }, [categoryId]);
 
   return <div>{<ItemList products={products} />}</div>;
 };
