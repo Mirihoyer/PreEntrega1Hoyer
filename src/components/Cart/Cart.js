@@ -2,10 +2,16 @@ import { fireEvent } from "@testing-library/react";
 import { useContext, useState, useEffect } from "react";
 import { cartContext } from "../../context/CartProvider";
 import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/firestore';
+import moment from "moment/moment";
 
 const Cart = () => {
     const { cart } = useContext(cartContext);
     const [total, setTotal] = useState(0);
+    const [formValues, setFormValues] = useState({
+        name: '',
+        phone: '',
+        email: '',
+    });
 
     const getTotalPrice = () => {
         setTotal(
@@ -19,16 +25,17 @@ const Cart = () => {
         const newOrder = {
             buyer: {
                 name: 'Miriam',
-                phone: 'Miriam',
-                email: '12345678',
+                phone: '12345678',
+                email: 'test@test.com',
             },
+            date: moment().format('DD/MM/YY'),
             items: cart,
             total: total,
         }
         addDoc(query, newOrder)
             .then((response) => {
                 alert(`Orden creada con el id ${response.id}`)
-                return (response)
+                return response;
             })
             .then((res) => {
                 cart.forEach((product) => {
@@ -37,8 +44,8 @@ const Cart = () => {
                         stock: product.stock - product.quantity,
                        
 
-                    })
-                })
+                    });
+                });
                 
                 //const orderDoc = doc(db, 'products', res.id);
             })
@@ -48,7 +55,17 @@ const Cart = () => {
 
     useEffect(() => {
         getTotalPrice();
-    }, [cart])
+    }, [cart]);
+
+    const handleInputChange = (event) => {
+        console.log(event.target.name);
+        console.log(event.target.value);
+        setFormValues({
+            ...formValues,
+        [event.target.name] : event.target.value,
+        })
+    };
+
     return (
         <div>
             {cart.map((product) => (
@@ -60,12 +77,20 @@ const Cart = () => {
                     <h2>{product.material}</h2>
                     <h2>{product.color}</h2>
                     <h2>{product.precio}</h2>
+                    <h2>{product.stock}</h2>
                 </div>
             ))
             }
             <div>
                 <h1>Total: {total}</h1>
                 <button onClick={createOrder}>Crear orden</button>
+                <div>
+                    <h2>Formulario</h2>
+                    <input name='name' type="text" placeholder="Nombre" value={formValues.name} onChange={handleInputChange} />
+                    <input name='phone' type="text" placeholder="Telefono" value={formValues.phone} onChange={handleInputChange} />
+                    <input name='email' type="text" placeholder="Email" value={formValues.email} onChange={handleInputChange} />
+
+                </div>
             </div>
         </div>);
 

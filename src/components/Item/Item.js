@@ -11,6 +11,7 @@ const Item = ({ producto }) => {
         <h2>Nombre: {producto.nombre}</h2>
         <h2>Material: {producto.material}</h2>
         <h2>Color: {producto.color}</h2>
+        
       </div>
     </Link>
    
