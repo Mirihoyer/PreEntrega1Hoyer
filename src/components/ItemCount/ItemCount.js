@@ -1,13 +1,13 @@
 
  const ItemCount = ({ setCount }) => {
     const addItem = () => {
-        setCount ((currentValue) => currentValue + 1) ;
+        setCount ((currentValue) => currentValue + 10) ;
 
     };
 
     const removeItem = () => {
         setCount ((currentValue) => {
-            if (currentValue > 0){
+            if (currentValue > 10){
                 return currentValue -1;
             } else{
                 return currentValue;

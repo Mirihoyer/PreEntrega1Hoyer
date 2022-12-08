@@ -11,11 +11,11 @@ const ItemDetailContainer = () => {
   const getProduct = () => {
  const db = getFirestore(); 
  const query = doc(db, 'products', id);
- getDoc(query).them((response) => {  
+ getDoc(query).then((response) => {  
   console.log(response.data());
   setProductSelected({ id: response.id, ...response.data()}); 
  })
-.cath((error) => console.log(error));
+.catch((error) => console.log(error));
   };
 
   useEffect(() => {
