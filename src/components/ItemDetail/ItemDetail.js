@@ -5,10 +5,12 @@ import ItemCount from "../ItemCount/ItemCount";
 const ItemDetail = ({ productSelected }) => {
   const [count, setCount] = useState(0);
   const { cart, addToCart} = useContext(cartContext);
-
+console.log(cart);
   return (
   <div>
-    <img className="img" alt={productSelected.nombre} src={productSelected.imagen} />
+    <img className="img" 
+    alt={productSelected.nombre} 
+    src={productSelected.imagen} />
     <h1>{productSelected.nombre}</h1>
     <h2>{productSelected.material}</h2>
     <h2>{productSelected.color}</h2>

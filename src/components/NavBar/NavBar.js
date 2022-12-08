@@ -21,13 +21,13 @@ function BasicExample() {
             <Nav.Link as={Link} to="/About">Sobre Nosotros</Nav.Link>
             <NavDropdown title="Perchas" id="navbarScrollingDropdown">
             <Nav.Link as={Link} to="/"></Nav.Link>
-              <NavDropdown.Item href="#action1">
+              <NavDropdown.Item >
                 <Nav.Link as={Link} to="/category/madera">Perchas de madera</Nav.Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action2">
+              <NavDropdown.Item >
                 <Nav.Link as={Link} to="/category/acrilico">Perchas de Acrilico</Nav.Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action3">
+              <NavDropdown.Item >
                 <Nav.Link as={Link} to="/category/terciopelo">Perchas de Terciopelo</Nav.Link>
               </NavDropdown.Item>
             </NavDropdown>

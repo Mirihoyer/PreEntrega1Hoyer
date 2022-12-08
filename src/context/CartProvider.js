@@ -9,18 +9,18 @@ const CartProvider = ({ children }) => {
         return cart.some((product) => product.id === id);
     }
     const addToCart = (product, quantity) => {
-        console.log(isInCart(product.id));
-        if(isInCart(product.id)) {
+               if(isInCart(product.id)) {
             alert('el producto ya esta en el carrito');
         } else {
         setCart([...cart,{...product, quantity}]);
    }
  }; 
-const clear =() => {
-    setCart([]);
-};
+const clearCart =() => { setCart([]);};
+
+const removeProduct = (id) => cart.filter(product => product.id !== id);
+
     return (
-        <cartContext.Provider value={{ cart, addToCart }}>
+        <cartContext.Provider value={{ cart, addToCart, clearCart, removeProduct}}>
             {children}
         </cartContext.Provider>
     );
