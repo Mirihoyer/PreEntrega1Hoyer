@@ -1,20 +1,16 @@
-.message-greeting-container{
+.title{
     display: flex;
-    justify-content:center;
-    margin:0 auto;
-    margin-top:100px;
-    width:50%;
-    height: 200px;
-    background-color:  #829460;
-    border-radius: 10px;
-    box-shadow: gray;
-    
-}
-
-.message{
-    display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 80px;
-    color:#FFE1E1;
-    font-family: roboto;
+    padding-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.cardStyle{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+ 
+};

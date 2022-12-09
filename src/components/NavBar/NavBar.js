@@ -1,4 +1,5 @@
 import React from 'react'
+import './NavBar.css'
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
@@ -9,20 +10,22 @@ import { CarWidget } from '../CarWidget/CarWidget';
 
 function BasicExample() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar /*bg="dark" variant="dark" expand="lg"*/ className='navBar'>
       <Container>
         <Navbar.Brand>
-          <Nav.Link as={Link} to="/">Todo Perchas</Nav.Link>
+          <Nav.Link as={Link} to="/"> <img className='logo' alt='logo' src='./imagenes/LOGO.png' /></Nav.Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/Home">Home</Nav.Link>
+            <Nav.Link as={Link} to="/Contacto">Contacto</Nav.Link>
             <Nav.Link as={Link} to="/About">Sobre Nosotros</Nav.Link>
-            <NavDropdown title="Perchas" id="navbarScrollingDropdown">
-            <Nav.Link as={Link} to="/"></Nav.Link>
+            <NavDropdown title="Productos" id="navbarScrollingDropdown">
               <NavDropdown.Item >
-                <Nav.Link as={Link} to="/category/madera">Perchas de madera</Nav.Link>
+                <Nav.Link as={Link} to="/">Todos los productos</Nav.Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item >
+                <Nav.Link as={Link} to="/category/madera">Perchas de Madera</Nav.Link>
               </NavDropdown.Item>
               <NavDropdown.Item >
                 <Nav.Link as={Link} to="/category/acrilico">Perchas de Acrilico</Nav.Link>

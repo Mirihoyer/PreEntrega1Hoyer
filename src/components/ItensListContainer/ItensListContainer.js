@@ -53,7 +53,12 @@ const ItensListContainer = () => {
     getProducts();
   }, [categoryId]);
 
-  return <div>{<ItemList products={products} />}</div>;
+  return <div >
+    <h1 className='title'>Perchas disponibles</h1>
+    <div className='cardStyle'>
+    {<ItemList products={products} />}
+    </div>
+    </div>;
 };
 
 export default ItensListContainer;

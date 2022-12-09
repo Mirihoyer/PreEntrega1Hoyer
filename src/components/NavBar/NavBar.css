@@ -1,0 +1,10 @@
+.navBar{
+    background-color: #DBA39A;
+}
+.logo{
+    width: 100px;
+}
+.me-auto{
+    display: flex;
+    justify-content: center;
+}
