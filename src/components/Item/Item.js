@@ -7,7 +7,7 @@ const Item = ({ producto }) => {
     <div>
       <Link to={`item/${producto.id}`} className="data">
         <div className="txtstyle">
-          <img className="img" alt={producto.nombre} src={`imagenes/${producto.imagen}`} />
+          <img className="img" alt={producto.nombre} src={`${producto.imagen}`} />
           <h2> {producto.nombre} de {producto.material}</h2>
           <h2>{producto.color}</h2>
 

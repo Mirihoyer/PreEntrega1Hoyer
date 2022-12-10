@@ -1,13 +1,14 @@
+import Button from 'react-bootstrap/Button';
 
  const ItemCount = ({ setCount }) => {
     const addItem = () => {
-        setCount ((currentValue) => currentValue + 10) ;
+        setCount ((currentValue) => currentValue + 1) ;
 
     };
 
     const removeItem = () => {
         setCount ((currentValue) => {
-            if (currentValue > 10){
+            if (currentValue > 1){
                 return currentValue -1;
             } else{
                 return currentValue;
@@ -17,8 +18,8 @@
 
     return (
         <div>
-            <button onClick={addItem}>Agregar percha</button>
-            <button onClick={removeItem}>Quitar percha</button>
+            <Button variant="outline-success" onClick={addItem}>Agregar percha</Button>
+            <Button variant="outline-warning" onClick={removeItem}>Quitar percha</Button>
         </div>
     );
 };

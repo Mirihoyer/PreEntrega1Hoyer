@@ -3,6 +3,9 @@ import { useContext, useState, useEffect } from "react";
 import { cartContext } from "../../context/CartProvider";
 import { collection, addDoc, getFirestore, doc, updateDoc } from 'firebase/firestore';
 import moment from "moment/moment";
+import './Cart.css';
+import Button from 'react-bootstrap/Button';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
     const { cart } = useContext(cartContext);
@@ -34,20 +37,25 @@ const Cart = () => {
         }
         addDoc(query, newOrder)
             .then((response) => {
-                alert(`Orden creada con el id ${response.id}`)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Orden creada con el id ${response.id}, por favor llenar formulario`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 return response;
             })
             .then((res) => {
                 cart.forEach((product) => {
                     const query = doc(db, 'products', product.id)
-                    updateDoc(query,{
+                    updateDoc(query, {
                         stock: product.stock - product.quantity,
-                       
+
 
                     });
                 });
-                
-                //const orderDoc = doc(db, 'products', res.id);
+
             })
             .catch((error) => console.log(error));
     };
@@ -62,35 +70,48 @@ const Cart = () => {
         console.log(event.target.value);
         setFormValues({
             ...formValues,
-        [event.target.name] : event.target.value,
+            [event.target.name]: event.target.value,
         })
     };
 
+    const mostrarAlerta = () => {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Formulario enviado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
     return (
-        <div>
+        <div className="cart">
             {cart.map((product) => (
-                <div>
-                    <img className="img"
+                <div className="product">
+                    <img className="imgcart"
                         alt={product.nombre}
-                        src={`/imagenes/${product.imagen}`} />
-                    <h1>{product.nombre}</h1>
-                    <h2>{product.material}</h2>
-                    <h2>{product.color}</h2>
-                    <h2>{product.precio}</h2>
-                    <h2>{product.stock}</h2>
+                        src={`${product.imagen}`} />
+                    <h3>{product.nombre} de {product.material}{product.color}</h3>
+                    <h2>${product.precio}</h2>
                 </div>
             ))
             }
             <div>
-                <h1>Total: {total}</h1>
-                <button onClick={createOrder}>Crear orden</button>
-                <div>
-                    <h2>Formulario</h2>
-                    <input name='name' type="text" placeholder="Nombre" value={formValues.name} onChange={handleInputChange} />
-                    <input name='phone' type="text" placeholder="Telefono" value={formValues.phone} onChange={handleInputChange} />
-                    <input name='email' type="text" placeholder="Email" value={formValues.email} onChange={handleInputChange} />
-
+                <div className="compra">
+                    <h3>Total: ${total}</h3>
+                    <Button variant="success" onClick={createOrder}>Crear orden</Button>
                 </div>
+                <div className="formulario">
+                    <h2>Formulario</h2>
+                    <h3>Nombre y apellido</h3>
+                    <input name='name' type="text" placeholder="Nombre y apellido" value={formValues.name} onChange={handleInputChange} />
+                    <h3>Telefono</h3>
+                    <input name='phone' type="text" placeholder="Telefono" value={formValues.phone} onChange={handleInputChange} />
+                    <h3>Email</h3>
+                    <input name='email' type="text" placeholder="Email" value={formValues.email} onChange={handleInputChange} />
+                    <Button variant="outline-info" onClick={() => mostrarAlerta()}>Enviar Formulario</Button>
+                </div>
+
             </div>
         </div>);
 

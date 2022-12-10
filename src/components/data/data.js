@@ -4,7 +4,7 @@ export const data = [
         nombre: 'percha',
         material: 'madera',
         color: 'natural',
-        imagen: '../imagenes/perchamadera.png',
+        imagen: '/imagenes/perchamadera.png',
         precio: '$100',
     },
     {
@@ -12,7 +12,7 @@ export const data = [
         nombre: 'percha',
         material: 'madera',
         color: 'chocolate',
-        imagen: '../imagenes/perchamaderachocolate.png',
+        imagen: '/imagenes/perchamaderachocolate.png',
         precio: '$120',
     },
     {
@@ -20,7 +20,7 @@ export const data = [
         nombre: 'percha',
         material: 'madera',
         color: 'blanco',
-        imagen: '../imagenes/perchamadbco.png',
+        imagen: '/imagenes/perchamadbco.png',
         precio: '$140',
     },
     {
@@ -28,7 +28,7 @@ export const data = [
         nombre: 'percha',
         material: 'acrilico',
         color: 'transparente',
-        imagen: '../imagenes/acrilico.png',
+        imagen: '/imagenes/acrilico.png',
         precio: '$100',
     },
     {
@@ -36,7 +36,7 @@ export const data = [
         nombre: 'percha con broche',
         material: 'acrilico',
         color: 'transparente',
-        imagen: '../imagenes/acrilicoconbroche.png',
+        imagen: '/imagenes/acrilicoconbroche.png',
         precio: '$120',
     },
     {
@@ -44,7 +44,7 @@ export const data = [
         nombre: 'percha',
         material: 'terciopelo',
         color: 'negro',
-        imagen: '../imagenes/terciopelo.png',
+        imagen: '/imagenes/terciopelo.png',
         precio: '$140',
     },
 ];

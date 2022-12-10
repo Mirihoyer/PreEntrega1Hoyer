@@ -5,14 +5,14 @@ import Button from 'react-bootstrap/Button';
 import './ItemDetail.css';
 
 const ItemDetail = ({ productSelected }) => {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(0);
   const { cart, addToCart } = useContext(cartContext);
   console.log(productSelected);
   return (
     <div className="itemDetail">
       <img className="imgdos"
         alt={productSelected.nombre}
-        src={`/imagenes/${productSelected.imagen}`} />
+        src={`${productSelected.imagen}`} />
       <div className="itemText">
         <h1>{productSelected.nombre}</h1>
         <h2>Material: {productSelected.material}</h2>
@@ -24,7 +24,9 @@ const ItemDetail = ({ productSelected }) => {
         <h2>Productos a agregar: {count}</h2>
         <ItemCount setCount={setCount} />
 
-        <button onClick={() => addToCart(productSelected, count)}>Agregar al carrito</button>
+        <div className="d-grid gap-2">
+        <Button variant="secondary" size="lg" onClick={() => addToCart(productSelected, count)}>Agregar al carrito</Button>
+        </div>
         {<h3>Cantidad de productos en el carrito: {cart && cart.length}</h3>}
       </div>
     </div>
