@@ -1,3 +1,9 @@
+# descripcion del proyecto 
+
+Este proyecto es una idea de e-commerce de ventas de perchas donde pueden agregar el producto, y crear una orden para poder realizar la compra. 
+
+[]:(https://media.giphy.com/media/EndoXwe2M0kRUb0DO6/giphy.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
